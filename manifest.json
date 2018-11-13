@@ -1,0 +1,17 @@
+{
+  "name": "icojs-in-webextension",
+  "description": "icojs in webextension",
+  "version": "0.1.0",
+  "background": {
+    "scripts": ["ico.js", "background.js"]
+  },
+  "homepage_url": "https://github.com/egy186/icojs-in-webextension",
+  "manifest_version": 2,
+  "options_ui": {
+    "open_in_tab": true,
+    "page": "options.html"
+  },
+  "permissions": [
+    "<all_urls>"
+  ]
+}
