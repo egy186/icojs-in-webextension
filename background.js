@@ -14,12 +14,8 @@ const handleMessage = async (request) => {
   console.log('Got message from options ui', request);
   const faviconUrl = request.url;
   const icons = await getFavicon(faviconUrl);
-  const iconUrls = icons.map(icon => {
-    const url = URL.createObjectURL(new Blob([icon.buffer], { type: 'image/png' }));
-    return url;
-  });
-  // send icon urls to options ui
-  browser.runtime.sendMessage({ icons: iconUrls });
+  // send parsed icons to options ui
+  browser.runtime.sendMessage({ icons: icons });
 };
 
 browser.runtime.onMessage.addListener(handleMessage);

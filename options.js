@@ -3,7 +3,11 @@
 const handleMessage = message => {
   console.log('Got message from background script', message);
   const icons = message.icons;
-  icons.forEach(url => {
+  const iconUrls = icons.map(icon => {
+    const url = URL.createObjectURL(new Blob([icon.buffer], { type: 'image/png' }));
+    return url;
+  });
+  iconUrls.forEach(url => {
     const image = new Image();
     image.src = url;
     document.querySelector('#output').appendChild(image);
